@@ -44,7 +44,12 @@ require(['base', 'bg', 'static', 'sprite'], function(){
             ".pot-img",
             75, base.ratio, 50
         );
+        
         base.addObject(pot);
+
+        pot.container.click(function(){
+            notagain.animate();
+        })
 
 
         $(window).resize(function(){
@@ -61,17 +66,13 @@ require(['base', 'bg', 'static', 'sprite'], function(){
             whale.whiggle(1, 0.5);
             pot.whiggle(3, 0.3);
             
-            if(window_pos > 0.2){
+            if(window_pos > 0.01){
                 whale.show(50);
             }
-            if(window_pos > 0.3){
-                pot.show(60);
-            }
-
-            if(window_pos > 0.7){
-                notagain.animate();
-            }
             if(window_pos > 0.99999){
+                $(window).on('touchmove', function(e){
+                    e.preventDefault();
+                })
                 $("body").addClass('noscroll');
                 whale.drop();
                 setTimeout(function(){
