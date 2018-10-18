@@ -22,45 +22,45 @@ jQuery(document).ready(function($){
         offset: - 50
     }
 
-    smoke = {
-        width: 76,
-        height: 118,
-        start_offset: 40,
-        end_offset: 334,
-        top_offset: 42,
-        vert_margin: 36,
-        cols: 5,
-        rows: 4,
-        sheet_width: 470,
-        sheet_height: 678,
-        sheet: "img/smoke.png",
-    }
+    // smoke = {
+    //     width: 76,
+    //     height: 118,
+    //     start_offset: 40,
+    //     end_offset: 334,
+    //     top_offset: 42,
+    //     vert_margin: 36,
+    //     cols: 5,
+    //     rows: 4,
+    //     sheet_width: 470,
+    //     sheet_height: 678,
+    //     sheet: "img/smoke.png",
+    // }
 
-    var setup_smoke = function(smoke){
-        $('.smoke').css('background-image', 'url('+smoke.sheet+')');
-        $('.smoke').css('width', smoke.sheet_width);
-        $('.smoke').css('height', smoke.sheet_height);
-        $('.smoke-mask').css('width', smoke.width);
-        $('.smoke-mask').css('height', smoke.height);
-    }
+    // var setup_smoke = function(smoke){
+    //     $('.smoke').css('background-image', 'url('+smoke.sheet+')');
+    //     $('.smoke').css('width', smoke.sheet_width);
+    //     $('.smoke').css('height', smoke.sheet_height);
+    //     $('.smoke-mask').css('width', smoke.width);
+    //     $('.smoke-mask').css('height', smoke.height);
+    // }
 
-    col = 0;
-    row = 0;
-    var boom = function(){
-        setTimeout(function(){
-            $('.smoke').css('left', - smoke.start_offset - (col * smoke.width) + "px" );
-            $('.smoke').css('top', - smoke.top_offset - (row * (smoke.height + smoke.top_offset)) + "px" );
-            col++;
-            console.log('move, i='+col);
-            if(col < smoke.cols){
-                boom();
-            } else {
-                row++;
-                col = 0;
-                boom();
-            }
-        },75);
-    }
+    // col = 0;
+    // row = 0;
+    // var boom = function(){
+    //     setTimeout(function(){
+    //         $('.smoke').css('left', - smoke.start_offset - (col * smoke.width) + "px" );
+    //         $('.smoke').css('top', - smoke.top_offset - (row * (smoke.height + smoke.top_offset)) + "px" );
+    //         col++;
+    //         console.log('move, i='+col);
+    //         if(col < smoke.cols){
+    //             boom();
+    //         } else {
+    //             row++;
+    //             col = 0;
+    //             boom();
+    //         }
+    //     },75);
+    // }
 
     end_reached = false;
 
@@ -148,6 +148,36 @@ jQuery(document).ready(function($){
         animate();
     })
 
-    setup_smoke(smoke);
-    boom(smoke);
+    var notagain = new Sprite(
+        "img/notagain.png",
+        385,
+        192,
+        75,
+        46,
+        1,
+        1,
+        2,
+        2,
+        5,
+        4,
+        "#notagain",
+        ratio
+    )
+    notagain.animate();
+    
+    var hallogrund = new Sprite(
+        "img/hallogrund.png",
+        936,
+        264,
+        142,
+        56,
+        2,
+        2,
+        2,
+        2,
+        6,
+        4,
+        "#hallogrund",
+        ratio
+    )
 })
