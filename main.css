@@ -62,6 +62,7 @@ body {
 
 #hallogrund {
     position: fixed;
+    display: none;
     bottom: 30%;
     left: 50%;
     margin-left: -7vw;
@@ -79,4 +80,8 @@ body {
 .noscroll {
     height: 100%; 
     overflow: hidden;
+}
+
+.full-width-wrapper {
+    width: 100vw;
 }

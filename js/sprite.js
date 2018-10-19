@@ -67,6 +67,7 @@ class Sprite {
     }
 
     animate(){
+        this.mask.css('display', 'block');
         if(this.frame_finished){
             this.frame_finished = false;
             setTimeout(this.step_forward.bind(this), this.animation_offset);

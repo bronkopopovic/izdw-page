@@ -64,16 +64,15 @@ require(['base', 'bg', 'static', 'sprite'], function(){
             window_pos = $(window).scrollTop() / ($(document).height() - $(window).height());    
             
             whale.whiggle(1, 0.5);
-            pot.whiggle(3, 0.3);
             
             if(window_pos > 0.01){
                 whale.show(50);
             }
-            if(window_pos > 0.99999){
+            if(window_pos > 0.999999){
                 $(window).on('touchmove', function(e){
                     e.preventDefault();
                 })
-                $("body").addClass('noscroll');
+                //$("body").addClass('noscroll');
                 whale.drop();
                 setTimeout(function(){
                     smoke.animate();
