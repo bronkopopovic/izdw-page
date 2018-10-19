@@ -68,10 +68,12 @@ require(['base', 'bg', 'static', 'sprite'], function(){
             if(window_pos > 0.01){
                 whale.show(50);
             }
+
             if(window_pos > 0.999999){
                 $(window).on('touchmove', function(e){
                     e.preventDefault();
                 })
+
                 //$("body").addClass('noscroll');
                 whale.drop();
                 setTimeout(function(){
@@ -79,6 +81,7 @@ require(['base', 'bg', 'static', 'sprite'], function(){
                 }, 400);
                 setTimeout(function(){
                     smoke.hide();
+                    smoke.finish();
                 }, 1800);
                 setTimeout(function(){
                     hallogrund.animate();

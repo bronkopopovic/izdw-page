@@ -16,6 +16,7 @@ class Static {
         this.container.css('width', this.width);
 
         this.shown = false;
+        this.finished = false;
     }
 
     whiggle(freq, strength){
@@ -65,9 +66,15 @@ class Static {
         this.container.css("posiion", "absolute")
         this.container.css("top", $(document).height() - (200 * this.ratio) + "px");
     }
+    finish(){
+        this.element.css('display', 'none');
+        this.finished = true;
+    }
     drop(){
-        this.container.animate({
-            top: $(window).height() - (50 * this.ratio) + "px"
-        }, 400, "linear")
+        if(!this.finished){
+            this.container.animate({
+                top: $(window).height() - (40 * Math.floor(this.ratio) ) + "px"
+            }, 400, "linear", this.finish.bind(this));
+        }
     }
 }

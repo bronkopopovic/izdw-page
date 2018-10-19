@@ -47,6 +47,7 @@ class Sprite {
         this.col = 0;
         this.row = 0;
         this.frame_finished = true;
+        this.finished = false;
     }
 
     step_forward(){
@@ -67,10 +68,12 @@ class Sprite {
     }
 
     animate(){
-        this.mask.css('display', 'block');
-        if(this.frame_finished){
-            this.frame_finished = false;
-            setTimeout(this.step_forward.bind(this), this.animation_offset);
+        if(!this.finished){
+            this.mask.css('display', 'block');
+            if(this.frame_finished){
+                this.frame_finished = false;
+                setTimeout(this.step_forward.bind(this), this.animation_offset);
+            }
         }
     }
 
@@ -81,6 +84,10 @@ class Sprite {
 
     hide(){
         this.mask.css('display', 'none');
+    }
+
+    finish(){
+        this.finished = true;
     }
 
     position(bottom){
